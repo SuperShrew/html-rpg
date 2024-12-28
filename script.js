@@ -1,8 +1,8 @@
 
 const gameElement = document.getElementById("game");
 const textElement = document.getElementById("text");
-const gameWidth = parseInt(game.offsetWidth) - parseInt(gameElement.style.borderWidth) * 2;
-const gameHeight = parseInt(game.offsetHeight) - parseInt(gameElement.style.borderWidth) * 2;
+const gameWidth = parseInt(gameElement.offsetWidth) - parseInt(gameElement.style.borderWidth) * 2;
+const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(gameElement.style.borderWidth) * 2;
 
 
 const playerMaxSpeed = 20;

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-//import * as level from './levelBuilder.js';
-
-
-
-=======
 
 const gameElement = document.getElementById("game");
 const textElement = document.getElementById("text");
@@ -59,7 +53,6 @@ document.addEventListener("keypress", function(event) {
 
 });
 
->>>>>>> b6a2803bbb8212f9ea33b1094c5786276c8548d1
 
 function collision(div1, div2) {
     const rect1 = div1.getBoundingClientRect();

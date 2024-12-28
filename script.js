@@ -1,4 +1,33 @@
-/*import * as level from './levelBuilder.js';
+import * as level from './levelBuilder.js';
+
+
+//(...)
+
+function collision(div1, div2) {
+    const rect1 = div1.getBoundingClientRect();
+    const rect2 = div2.getBoundingClientRect();
+    return (
+        rect1.left <= rect2.right &&
+        rect1.right >= rect2.left &&
+        rect1.top <= rect2.bottom &&
+        rect1.bottom >= rect2.top
+    );
+}
+
+function inside(innerDiv, outerDiv) {
+    const innerRect = innerDiv.getBoundingClientRect();
+    const outerRect = outerDiv.getBoundingClientRect();
+    return (
+        innerRect.top >= outerRect.top &&
+        innerRect.left >= outerRect.left &&
+        innerRect.bottom <= outerRect.bottom &&
+        innerRect.right <= outerRect.right
+    );
+}
+
+/*  OLD CODE FROM HERE
+
+import * as level from './levelBuilder.js';
 var Left = 0;
 var Top = 0;
 var speed = 20;

@@ -1,8 +1,8 @@
 
 const gameElement = document.getElementById("game");
 const textElement = document.getElementById("text");
-const gameWidth = parseInt(gameElement.offsetWidth) - parseInt(gameElement.style.borderWidth) * 2;
-const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(gameElement.style.borderWidth) * 2;
+const gameWidth = parseInt(gameElement.offsetWidth) - parseInt(window.getComputedStyle(gameElement).borderWidth) * 2;
+const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(window.getComputedStyle(gameElement).borderTopWidth) * 2;
 
 
 const playerMaxSpeed = 20;
@@ -21,7 +21,6 @@ document.addEventListener("keypress", function(event) {
   let downPressed = false;
   if (event.code === "KeyA" || event.code === "ArrowLeft") {
     leftPressed = true;
-    console.log("left");
   }
   if (event.code === "KeyD" || event.code === "ArrowRight") {
     rightPressed = true;
@@ -55,6 +54,17 @@ document.addEventListener("keypress", function(event) {
   if (downPressed && !upPressed) {
     playerY += playerMaxSpeed;
   }
+
+  /*if (playerX < 0) {
+    playerX = 0;
+  } else if (playerX > gameWidth) {
+    playerX = gameWidth;
+  }
+  if (playerY < 0) {
+    playerY = 0;
+  } else if (playerY > gameHeight) {
+    playerY = gameHeight;
+  }*/
   playerX = Math.max(0, Math.min(playerX, gameWidth));
   playerY = Math.max(0, Math.min(playerY, gameHeight));
   console.log("x="+String(playerX));

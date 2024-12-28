@@ -77,9 +77,10 @@ document.addEventListener("keypress", function(event) {
   }*/
   playerX = Math.max(0, Math.min(playerX, gameWidth-parseInt(playerElement.style.width)));
   playerY = Math.max(0, Math.min(playerY, gameHeight-parseInt(playerElement.style.height)));
-  console.log("x="+String(playerX));
+  //console.log("x="+String(playerX));
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
+  console.log(collision(player, document.getElementsByClassName("NPC1")[0]));
 
 });
 
@@ -87,12 +88,15 @@ document.addEventListener("keypress", function(event) {
 function collision(div1, div2) {
     const rect1 = div1.getBoundingClientRect();
     const rect2 = div2.getBoundingClientRect();
-    return (
-        rect1.left <= rect2.right &&
-        rect1.right >= rect2.left &&
-        rect1.top <= rect2.bottom &&
-        rect1.bottom >= rect2.top
-    );
+    const isTouchingHorizontally = rect1.bottom > rect2.top && rect1.top < rect2.bottom && (rect1.right === rect2.left || rect2.right === rect1.left);
+    const isTouchingVertically = rect1.right > rect2.left && rect1.left < rect2.right && (rect1.bottom === rect2.top || rect2.bottom === rect1.top);
+    return isTouchingHorizontally || isTouchingVertically;
+    /*return (
+        rect1.left < rect2.right &&
+        rect1.right > rect2.left &&
+        rect1.top < rect2.bottom &&
+        rect1.bottom > rect2.top
+    );*/
 }
 
 function inside(innerDiv, outerDiv) {

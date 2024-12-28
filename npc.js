@@ -1,3 +1,8 @@
+const flags = {
+	testFlag: true,
+	gotFirstWeapon: false
+};
+
 // PROBABLY overly complicated, but may allow for flexibility in dialog effects? (idk what I'm talking about)
 class NPC {
 	constructor(npcName, dialogs) {
@@ -59,6 +64,7 @@ class NPC {
 
 }
 
+
 // NPC definition: Old Man //
 const npcOldMan = new NPC("Old Man", new Map());
 // 1st meeting dialog
@@ -83,5 +89,9 @@ npcOldMan.dialogs.set("general",
 
 npcOldMan.interact = function() {
 	//do flag check here?
-	if (!flags.gotFirstWeapon)
+	if (!flags.gotFirstWeapon) {
+		doDialog(dialogs["meet"]);
+	} else {
+		doDialog(dialogs["general"]);
+	}
 }

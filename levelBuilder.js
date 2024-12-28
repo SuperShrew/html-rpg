@@ -1,25 +1,30 @@
-export function addDiv(id, parentElement) {
-  const newDiv = document.createElement("div");
-  newDiv.id = id;
-  parentElement.appendChild(newDiv);
-  return newDiv;
-}
-
-export function addButton(id, parentElement, text) {
-  const button = document.createElement("button");
-  button.id = id;
-  button.innerHTML = text;
-  parentElement.appendChild(button);
-  return button;
-}
-
-export function addHitbox(parentElement) {
-  const hitboxDiv = addDiv(parentElement.id + "Hitbox", parentElement)
-  return hitboxDiv;
-}
-
-export function clearCurrentLevel() {
-  document.getElementById("game").innerHTML = "";
+export class Element {
+  static addDiv(id, parentElement, top, left, width, height) {
+    const newDiv = document.createElement("div");
+    newDiv.id = id;
+    newDiv.top = top;
+    newDiv.left = left;
+    newDiv.width = width;
+    newDiv.height = height;
+    parentElement.appendChild(newDiv);
+    return newDiv;
+  }
+  static addHitbox(parentElement, type) {
+    var hitboxDiv = document.createElement("div");
+    hitboxDiv.id = type + "Hitbox";
+    parentElement.appendChild(hitboxDiv);
+    return hitboxDiv;
+  }
+  static clearGame() {
+    document.getElementById("game").innerHTML = "";
+  }
+  static addButton(id, parentElement, text) {
+    var button = document.createElement("button");
+    button.id = id;
+    button.innerHTML = text;
+    parentElement.appendChild(button);
+    return button;
+  }
 }
 
 /* OLD CODE FROM HERE
@@ -77,32 +82,3 @@ export function addButton(text, id, parentElement) {
   return button;
 }
 */
-
-export class element {
-  static addDiv(id, parentElement, top, left, width, height) {
-    var newDiv = document.createElement("div");
-    newDiv.id = id;
-    newDiv.top = top
-    newDiv.left = left
-    newDiv.width = width
-    newDiv.height = height
-    parentElement.appendChild(newDiv);
-    return newDiv
-  }
-  static addHitbox(parentElement, type) {
-    var hitboxDiv = document.createElement("div");
-    hitboxDiv.id = type + "Hitbox";
-    parentElement.appendChild(hitboxDiv);
-    return hitboxDiv;
-  }
-  static clearGame() {
-    document.getElementById("game").innerHTML = "";
-  }
-  static addButton(text, id, parentElement) {
-    var button = document.createElement("button");
-    button.id = id;
-    button.innerHTML = text;
-    parentElement.appendChild(button);
-    return button;
-  }
-}

@@ -1,4 +1,4 @@
-import * as level from './levelBuilder.js';
+//import * as level from './levelBuilder.js';
 
 
 //(...)
@@ -24,6 +24,8 @@ function inside(innerDiv, outerDiv) {
         innerRect.right <= outerRect.right
     );
 }
+
+document.getElementById("game").appendChild(buildLevel(0));
 
 /*  OLD CODE FROM HERE
 

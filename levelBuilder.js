@@ -1,16 +1,17 @@
-export class Element {
-  static addDiv(id, parentElement, top, left, width, height) {
+class Element {
+  static addDiv(id, parentElement, top, left, width, height, position) {
     const newDiv = document.createElement("div");
     newDiv.id = id;
-    newDiv.top = top;
-    newDiv.left = left;
-    newDiv.width = width;
-    newDiv.height = height;
+    newDiv.style.top = top;
+    newDiv.style.left = left;
+    newDiv.style.width = width;
+    newDiv.style.height = height;
+    newDiv.style.position = position
     parentElement.appendChild(newDiv);
     return newDiv;
   }
   static addHitbox(parentElement, type) {
-    var hitboxDiv = document.createElement("div");
+    let hitboxDiv = document.createElement("div");
     hitboxDiv.id = type + "Hitbox";
     parentElement.appendChild(hitboxDiv);
     return hitboxDiv;
@@ -18,12 +19,39 @@ export class Element {
   static clearGame() {
     document.getElementById("game").innerHTML = "";
   }
-  static addButton(id, parentElement, text) {
-    var button = document.createElement("button");
+  static addButton(id, parentElement, text, top, left, position, centre) {
+    let button = document.createElement("button");
     button.id = id;
     button.innerHTML = text;
+    button.style.top = top
+    button.style.left = left
+    button.style.position = position
+    if (centre) {
+      button.style.transform = "translateX(-50%)"
+    }
     parentElement.appendChild(button);
     return button;
+  }
+  static addHeading(parentElement, text, align) {
+    let heading = document.createElement("h1");
+    heading.innerText = text;
+    heading.style.textAlign = align;
+    parentElement.appendChild(heading);
+    return heading;
+  }
+}
+
+function buildLevel(levelNum) {
+  switch(levelNum) {
+  case 0:
+    let base = document.createElement("div");
+    Element.addHeading(base, "Web RPG thing", "center");
+    Element.addButton("", base, "Play", "100px", "50%", "absolute", true);
+    base.style.backgroundColor = "white";
+    base.style.width = "300px";
+    base.style.height = "300px";
+    base.style.position = "absolute";
+    return base;
   }
 }
 

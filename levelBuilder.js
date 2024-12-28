@@ -77,3 +77,32 @@ export function addButton(text, id, parentElement) {
   return button;
 }
 */
+
+export class element {
+  static addDiv(id, parentElement, top, left, width, height) {
+    var newDiv = document.createElement("div");
+    newDiv.id = id;
+    newDiv.top = top
+    newDiv.left = left
+    newDiv.width = width
+    newDiv.height = height
+    parentElement.appendChild(newDiv);
+    return newDiv
+  }
+  static addHitbox(parentElement, type) {
+    var hitboxDiv = document.createElement("div");
+    hitboxDiv.id = type + "Hitbox";
+    parentElement.appendChild(hitboxDiv);
+    return hitboxDiv;
+  }
+  static clearGame() {
+    document.getElementById("game").innerHTML = "";
+  }
+  static addButton(text, id, parentElement) {
+    var button = document.createElement("button");
+    button.id = id;
+    button.innerHTML = text;
+    parentElement.appendChild(button);
+    return button;
+  }
+}

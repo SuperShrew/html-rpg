@@ -42,15 +42,22 @@ class Element {
 }
 
 function buildLevel(levelNum) {
+  let base = document.createElement("div");
+  base.style.width = "300px"
+  base.style.height = "300px"
   switch(levelNum) {
   case 0:
-    let base = document.createElement("div");
     Element.addHeading(base, "Web RPG thing", "center");
     Element.addButton("", base, "Play", "100px", "50%", "absolute", true);
     base.style.backgroundColor = "white";
     base.style.width = "300px";
     base.style.height = "300px";
     base.style.position = "absolute";
+    return base;
+  case 1:
+    Element.addDiv("player", base, "0px", "0px", "20px", "20px", "relative");
+    let npc = Element.addDiv("NPC1", base, "100px", "280px", "20px", "20px", "relative");
+    Element.addHitbox(npc, "NPC");
     return base;
   }
 }

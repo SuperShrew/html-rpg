@@ -10,7 +10,8 @@ let playerX = 0;
 let playerY = 0;
 let playerInventory = {};
 
-let currentLevel = 0;
+let currentLevel = 1;
+document.getElementById("game").appendChild(buildLevel(1))
 
 document.addEventListener("keypress", function(event) {
   // handle input
@@ -91,7 +92,7 @@ function inside(innerDiv, outerDiv) {
 import * as level from './levelBuilder.js';
 var Left = 0;
 var Top = 0;
-var speed = 20;
+var playerMaxSpeed = 20;
 var oldManT = false
 var inventory = {};
 var invString = "";
@@ -136,34 +137,34 @@ document.addEventListener("keypress", function(event) {
   var buttonNext = level.addButton("Next", "buttonNext", buttonDiv);
   buttonNext.style.display = "none";
   if (event.key == "a") {
-    Left = Left - speed;
+    Left = Left - playerMaxSpeed;
     mover.style.left = Left + "px";
-    if (parseInt(mover.style.left) == -speed) {
-      Left = Left + speed;
+    if (parseInt(mover.style.left) == -playerMaxSpeed) {
+      Left = Left + playerMaxSpeed;
       mover.style.left = Left + "px";
     }
   }
   if (event.key == "d") {
-    Left = Left + speed;
+    Left = Left + playerMaxSpeed;
     mover.style.left = Left + "px";
     if (parseInt(mover.style.left) >= gameWidth) {
-      Left = Left - speed;
+      Left = Left - playerMaxSpeed;
       mover.style.left = Left + "px";
     }
   }
   if (event.key == "w") {
-    Top = Top - speed;
+    Top = Top - playerMaxSpeed;
     mover.style.top = Top + "px";
-    if (parseInt(mover.style.top) == -speed) {
-      Top = Top + speed;
+    if (parseInt(mover.style.top) == -playerMaxSpeed) {
+      Top = Top + playerMaxSpeed;
       mover.style.top = Top + "px";
     }
   }
   if (event.key == "s") {
-    Top = Top + speed;
+    Top = Top + playerMaxSpeed;
     mover.style.top = Top + "px";
     if (parseInt(mover.style.top) >= gameHeight) {
-      Top = Top - speed;
+      Top = Top - playerMaxSpeed;
       mover.style.top = Top + "px";
     }
   }

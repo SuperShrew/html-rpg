@@ -1,7 +1,7 @@
 //import * as level from './levelBuilder.js';
 
 
-//(...)
+
 
 function collision(div1, div2) {
     const rect1 = div1.getBoundingClientRect();

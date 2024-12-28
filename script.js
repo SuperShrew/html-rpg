@@ -14,7 +14,7 @@ let currentLevel = 0; // title screen
 
 //TEST
 gameElement.appendChild(buildLevel(1))
-let currentLevel = 1;
+currentLevel = 1;
 
 
 

@@ -1,7 +1,58 @@
-import * as level from './levelBuilder.js';
+
+const gameElement = document.getElementById("game");
+const textElement = document.getElementById("text");
+const gameWidth = parseInt(game.offsetWidth) - parseInt(gameElement.style.borderWidth) * 2;
+const gameHeight = parseInt(game.offsetHeight) - parseInt(gameElement.style.borderWidth) * 2;
 
 
-//(...)
+const playerMaxSpeed = 20;
+let playerX = 0;
+let playerY = 0;
+
+document.addEventListener("keypress", function(event) {
+  // handle input
+  let leftPressed = false;
+  let rightPressed = false;
+  let upPressed = false;
+  let downPressed = false;
+  if (event.code === "KeyA" || event.code === "ArrowLeft") {
+    leftPressed = true;
+  }
+  if (event.code === "KeyD" || event.code === "ArrowRight") {
+    rightPressed = true;
+  }
+  if (event.code === "KeyW" || event.code === "ArrowUp") {
+    upPressed = true;
+  }
+  if (event.code === "KeyS" || event.code === "ArrowDown") {
+    downPressed = true;
+  }
+
+  let playerElement = document.getElementById("player");
+
+  // player movement
+  if (leftPressed && !rightPressed) {
+    playerX -= speed;
+  }
+  if (rightPressed && !leftPressed) {
+    playerX += speed;
+  }
+  if (upPressed && !downPressed) {
+    playerY -= speed;
+  }
+  if (downPressed && !upPressed) {
+    playerY += speed;
+  }
+  playerX = Math.max(0, Math.min(playerX, gameWidth));
+  playerY = Math.max(0, Math.min(playerY, gameHeight));
+  playerElement.style.left = playerX + "px";
+  playerElement.style.top = playerY + "px";
+
+
+
+
+});
+
 
 function collision(div1, div2) {
     const rect1 = div1.getBoundingClientRect();

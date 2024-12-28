@@ -15,7 +15,7 @@
   z-index: 1;
 }
 
-#door1 {
+.door1 {
   position: absolute;
   height: 30px;
   width: 40px;
@@ -23,7 +23,7 @@
   z-index: 1;
 }
 
-#NPC1 {
+.NPC1 {
   position: absolute;
   border: 5px solid saddlebrown;
   height: 10px;
@@ -33,7 +33,7 @@
   top: 100px;
 }
 
-#NPCHitbox {
+.NPCHitbox {
   --solid: 1;
   position: relative;
   left: -5px;
@@ -46,7 +46,7 @@
   top: 350px;
   position: absolute;
 }
-#buttonDiv {
+.buttonDiv {
   position: absolute;
   top: 320px;
   left: 275px;

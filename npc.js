@@ -7,6 +7,25 @@ class NPC {
 
 	function interact() {}
 
+	function doDialog(sequence) {
+		playerCtrl = false;
+		sequence[0]();
+        nextButton.style.display = "";
+		let i = 0;
+        nextButton.onclick = function() {
+        	i++;
+        	if (i < sequence.length) {
+				sequence[i]();
+			} else {
+				textElement.innerHTML = "";
+				nextButton.style.display = "none";
+				playerCtrl = true;
+			}
+		}
+	
+	}
+
+
 	function dialogTalk(text){
 		textElement.innerHTML = this.name + ": " + text;
 	}

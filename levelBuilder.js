@@ -1,12 +1,13 @@
 class Element {
-  static addDiv(id, parentElement, top, left, width, height, position) {
+  static addDiv(id, _class, parentElement, top, left, width, height, position) {
     const newDiv = document.createElement("div");
     newDiv.id = id;
     newDiv.style.top = top;
     newDiv.style.left = left;
     newDiv.style.width = width;
     newDiv.style.height = height;
-    newDiv.style.position = position
+    newDiv.style.position = position;
+    newDiv.className = _class;
     parentElement.appendChild(newDiv);
     return newDiv;
   }
@@ -55,8 +56,8 @@ function buildLevel(levelNum) {
     base.style.position = "absolute";
     return base;
   case 1:
-    Element.addDiv("player", base, "0px", "0px", "20px", "20px", "relative");
-    let npc = Element.addDiv("NPC1", base, "100px", "280px", "20px", "20px", "relative");
+    Element.addDiv("player", "", base, "0px", "0px", "20px", "20px", "relative");
+    let npc = Element.addDiv("", "NPC1", base, "100px", "280px", "", "", "relative");
     Element.addHitbox(npc, "NPC");
     return base;
   }

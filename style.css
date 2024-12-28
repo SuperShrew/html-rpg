@@ -1,4 +1,4 @@
-#mover {
+#player {
   position: relative;
   height: 20px;
   width: 20px;
@@ -15,7 +15,7 @@
   z-index: 1;
 }
 
-#doorType1 {
+#door1 {
   position: absolute;
   height: 30px;
   width: 40px;
@@ -23,7 +23,7 @@
   z-index: 1;
 }
 
-#NPCType1 {
+#NPC1 {
   position: absolute;
   border: 5px solid saddlebrown;
   height: 10px;
@@ -34,6 +34,7 @@
 }
 
 #NPCHitbox {
+  --solid: 1;
   position: relative;
   left: -5px;
   top: -5px;

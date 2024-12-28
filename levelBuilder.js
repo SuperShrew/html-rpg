@@ -1,4 +1,30 @@
-/*export function test() {
+export function addDiv(id, parentElement) {
+  const newDiv = document.createElement("div");
+  newDiv.id = id;
+  parentElement.appendChild(newDiv);
+  return newDiv;
+}
+
+export function addButton(id, parentElement, text) {
+  const button = document.createElement("button");
+  button.id = id;
+  button.innerHTML = text;
+  parentElement.appendChild(button);
+  return button;
+}
+
+export function addHitbox(parentElement) {
+  const hitboxDiv = addDiv(parentElement.id + "Hitbox", parentElement)
+  return hitboxDiv;
+}
+
+export function clearCurrentLevel() {
+  document.getElementById("game").innerHTML = "";
+}
+
+/* OLD CODE FROM HERE
+
+export function test() {
   alert("test")
 }
 

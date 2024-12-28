@@ -25,7 +25,6 @@ function inside(innerDiv, outerDiv) {
     );
 }
 
-document.getElementById("game").appendChild(buildLevel(0));
 
 /*  OLD CODE FROM HERE
 

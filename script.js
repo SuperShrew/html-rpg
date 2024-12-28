@@ -9,6 +9,8 @@ const playerMaxSpeed = 20;
 let playerX = 0;
 let playerY = 0;
 
+let currentLevel = 0;
+
 document.addEventListener("keypress", function(event) {
   // handle input
   let leftPressed = false;
@@ -28,9 +30,15 @@ document.addEventListener("keypress", function(event) {
     downPressed = true;
   }
 
+
+  // early out if we are still in the title screen
+  if (currentLevel < 1) {
+    return;
+  }
+
+  // player control
   let playerElement = document.getElementById("player");
 
-  // player movement
   if (leftPressed && !rightPressed) {
     playerX -= speed;
   }
@@ -47,9 +55,6 @@ document.addEventListener("keypress", function(event) {
   playerY = Math.max(0, Math.min(playerY, gameHeight));
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
-
-
-
 
 });
 

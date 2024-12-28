@@ -10,8 +10,18 @@ let playerX = 0;
 let playerY = 0;
 let playerInventory = {};
 
+let currentLevel = 0; // title screen
+
+//TEST
+gameElement.appendChild(buildLevel(1))
 let currentLevel = 1;
-document.getElementById("game").appendChild(buildLevel(1))
+
+
+
+
+
+
+
 
 document.addEventListener("keypress", function(event) {
   // handle input
@@ -65,8 +75,8 @@ document.addEventListener("keypress", function(event) {
   } else if (playerY > gameHeight) {
     playerY = gameHeight;
   }*/
-  playerX = Math.max(0, Math.min(playerX, gameWidth));
-  playerY = Math.max(0, Math.min(playerY, gameHeight));
+  playerX = Math.max(0, Math.min(playerX, gameWidth-parseInt(playerElement.style.width)));
+  playerY = Math.max(0, Math.min(playerY, gameHeight-parseInt(playerElement.style.height)));
   console.log("x="+String(playerX));
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";

@@ -40,7 +40,7 @@ class NPC {
 
 }
 
-
+// NPC definition: Old Man //
 const npcOldMan = new NPC("Old Man", new Map());
 // 1st meeting dialog
 npcOldMan.dialogs.set("meet",
@@ -50,6 +50,7 @@ npcOldMan.dialogs.set("meet",
 		},
 		function() {
 			npcOldMan.dialogGetItem("WOODEN SWORD", 1);
+			flags.gotFirstWeapon = true;
 		}
 	]);
 // default dialog

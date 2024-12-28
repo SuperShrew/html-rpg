@@ -10,15 +10,15 @@ class NPC {
 	function doDialog(sequence) {
 		playerCtrl = false;
 		sequence[0]();
-        nextButton.style.display = "";
+        btnNext.style.display = "";
 		let i = 0;
-        nextButton.onclick = function() {
+        btnNext.onclick = function() {
         	i++;
         	if (i < sequence.length) {
 				sequence[i]();
 			} else {
 				textElement.innerHTML = "";
-				nextButton.style.display = "none";
+				btnNext.style.display = "none";
 				playerCtrl = true;
 			}
 		}

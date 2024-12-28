@@ -1,6 +1,8 @@
 
 const gameElement = document.getElementById("game");
 const textElement = document.getElementById("text");
+const btnNext = addButton("Next", "btnNext", buttonDiv);
+btnNext.style.display = "none";
 const gameWidth = parseInt(gameElement.offsetWidth) - parseInt(window.getComputedStyle(gameElement).borderWidth) * 2;
 const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(window.getComputedStyle(gameElement).borderTopWidth) * 2;
 
@@ -8,6 +10,7 @@ const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(window.getCompu
 const playerMaxSpeed = 20;
 let playerX = 0;
 let playerY = 0;
+let playerCtrl = true;
 let playerInventory = {};
 
 let currentLevel = 0; // title screen
@@ -51,18 +54,19 @@ document.addEventListener("keypress", function(event) {
 
   // player control
   let playerElement = document.getElementById("player");
-
-  if (leftPressed && !rightPressed) {
-    playerX -= playerMaxSpeed;
-  }
-  if (rightPressed && !leftPressed) {
-    playerX += playerMaxSpeed;
-  }
-  if (upPressed && !downPressed) {
-    playerY -= playerMaxSpeed;
-  }
-  if (downPressed && !upPressed) {
-    playerY += playerMaxSpeed;
+  if (playerCtrl) {
+    if (leftPressed && !rightPressed) {
+      playerX -= playerMaxSpeed;
+    }
+    if (rightPressed && !leftPressed) {
+      playerX += playerMaxSpeed;
+    }
+    if (upPressed && !downPressed) {
+      playerY -= playerMaxSpeed;
+    }
+    if (downPressed && !upPressed) {
+      playerY += playerMaxSpeed;
+    }
   }
 
   /*if (playerX < 0) {

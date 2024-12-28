@@ -15,17 +15,15 @@
   z-index: 1;
 }
 
-#door1 {
+#doorType1 {
   position: absolute;
-  left: 150px;
-  top: 270px;
   height: 30px;
   width: 40px;
   background-color: gray;
   z-index: 1;
 }
 
-#oldMan {
+#NPCType1 {
   position: absolute;
   border: 5px solid saddlebrown;
   height: 10px;
@@ -35,7 +33,7 @@
   top: 100px;
 }
 
-#oldManHitbox {
+#NPCHitbox {
   position: relative;
   left: -5px;
   top: -5px;

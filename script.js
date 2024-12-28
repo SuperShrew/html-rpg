@@ -1,4 +1,4 @@
-import * as level from './levelBuilder.js';
+/*import * as level from './levelBuilder.js';
 var Left = 0;
 var Top = 0;
 var speed = 20;
@@ -109,4 +109,4 @@ document.addEventListener("keypress", function(event) {
       }
     text.innerHTML = invString;
   }
-});
+});*/

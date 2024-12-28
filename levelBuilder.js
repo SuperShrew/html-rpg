@@ -1,4 +1,4 @@
-export function test() {
+/*export function test() {
   alert("test")
 }
 
@@ -50,3 +50,4 @@ export function addButton(text, id, parentElement) {
   parentElement.appendChild(button);
   return button;
 }
+*/

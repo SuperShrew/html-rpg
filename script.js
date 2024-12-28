@@ -8,6 +8,7 @@ const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(gameElement.sty
 const playerMaxSpeed = 20;
 let playerX = 0;
 let playerY = 0;
+let playerInventory = {};
 
 let currentLevel = 0;
 
@@ -19,6 +20,7 @@ document.addEventListener("keypress", function(event) {
   let downPressed = false;
   if (event.code === "KeyA" || event.code === "ArrowLeft") {
     leftPressed = true;
+    console.log("left");
   }
   if (event.code === "KeyD" || event.code === "ArrowRight") {
     rightPressed = true;
@@ -31,6 +33,7 @@ document.addEventListener("keypress", function(event) {
   }
 
 
+
   // early out if we are still in the title screen
   if (currentLevel < 1) {
     return;
@@ -40,19 +43,20 @@ document.addEventListener("keypress", function(event) {
   let playerElement = document.getElementById("player");
 
   if (leftPressed && !rightPressed) {
-    playerX -= speed;
+    playerX -= playerMaxSpeed;
   }
   if (rightPressed && !leftPressed) {
-    playerX += speed;
+    playerX += playerMaxSpeed;
   }
   if (upPressed && !downPressed) {
-    playerY -= speed;
+    playerY -= playerMaxSpeed;
   }
   if (downPressed && !upPressed) {
-    playerY += speed;
+    playerY += playerMaxSpeed;
   }
   playerX = Math.max(0, Math.min(playerX, gameWidth));
   playerY = Math.max(0, Math.min(playerY, gameHeight));
+  console.log("x="+String(playerX));
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
 

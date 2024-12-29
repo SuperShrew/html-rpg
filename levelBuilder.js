@@ -63,7 +63,7 @@ function buildLevel(levelNum) {
   }
 }
 
-/* OLD CODE FROM HERE
+// OLD CODE FROM HERE
 
 function test() {
   alert("test")
@@ -117,4 +117,3 @@ function addButton(text, id, parentElement) {
   parentElement.appendChild(button);
   return button;
 }
-*/

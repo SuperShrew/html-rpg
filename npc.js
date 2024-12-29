@@ -86,6 +86,7 @@ npcOldMan.dialogs.set("general",
 		}
 	]);
 
+
 npcOldMan.interact = function() {
 	//do flag check here?
 	if (!flags.gotFirstWeapon) {

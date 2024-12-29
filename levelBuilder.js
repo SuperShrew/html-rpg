@@ -66,6 +66,7 @@ function buildLevel(levelNum) {
     return base;
   case 2:
     base.style.backgroundColor = "green"
+    return base;
   }
 }
 

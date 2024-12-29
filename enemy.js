@@ -25,13 +25,15 @@ class Enemy {
 	}
 }
 
+// matt i will explain all of this later
+
 //TESTING
 
 let eTest = new Enemy(
 {
 	"name": "test",
 	"HP": 10,
-	"maxHP": 1100,
+	"maxHP": 110,
 	"energy": 20,
 	"maxEnergy": 20
 },

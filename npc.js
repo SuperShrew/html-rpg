@@ -60,6 +60,12 @@ class NPC {
     	playerInventory[item] -= quantity;
 	}
 	
+	dialogChangeLevel(levelNum) {
+		clearGame();
+		gameElement.appendChild(buildLevel(levelNum));
+		currentLevel = levelNum;
+		textElement.innerHTML = "Entering level  " + String(levelNum);
+	}
 }
 
 
@@ -102,6 +108,9 @@ doorCaveExit.dialogs.set("enter",
 	[
 		function() {
 			doorCaveExit.dialogNarration("You go through");
+		},
+		function() {
+			doorCaveExit.dialogChangeLevel(2);
 		}
 	]);
 

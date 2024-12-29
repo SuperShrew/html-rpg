@@ -1,19 +1,4 @@
 
-const gameElement = document.getElementById("game");
-const textElement = document.getElementById("text");
-const btnNext = Element.addButton("btnNext", buttonDiv, "Next");
-btnNext.style.display = "none";
-const gameWidth = parseInt(gameElement.offsetWidth) - parseInt(window.getComputedStyle(gameElement).borderWidth) * 2;
-const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(window.getComputedStyle(gameElement).borderTopWidth) * 2;
-
-
-const playerMaxSpeed = 20;
-let playerX = 0;
-let playerY = 0;
-let origionalX = 0;
-let origionalY = 0;
-let playerCtrl = true;
-let playerInventory = {};
 
 let currentLevel = 0; // title screen
 

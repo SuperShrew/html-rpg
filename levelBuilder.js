@@ -68,6 +68,8 @@ function buildLevel(levelNum) {
   case 2:
     base.style.backgroundColor = "green"
     Element.addDiv("player", "", base, "0px", "0px", "20px", "20px", "relative");
+    Element.addDiv("caveEnter", "door1", base, "", "30%", "", "", "");
+    npcByID.set("caveEnter", doorCaveEnter);
     playerX = 0;
     playerY = 0;
     return base;

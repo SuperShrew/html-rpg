@@ -117,3 +117,20 @@ doorCaveExit.dialogs.set("enter",
 doorCaveExit.interact = function() {
 	doorCaveExit.doDialog(doorCaveExit.dialogs.get("enter"));
 }
+
+// 'NPC' definition: Cave Enter //
+const doorCaveEnter = new NPC("Cave Entrance", new Map());
+
+doorCaveEnter.dialogs.set("enter",
+	[
+		function() {
+			doorCaveEnter.dialogNarration("You go through");
+		},
+		function() {
+			doorCaveEnter.dialogChangeLevel(1);
+		}
+	]);
+
+doorCaveEnter.interact = function() {
+	doorCaveEnter.doDialog(doorCaveEnter.dialogs.get("enter"));
+}

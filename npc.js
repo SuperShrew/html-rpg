@@ -5,7 +5,7 @@ const flags = {
 
 // PROBABLY overly complicated, but may allow for flexibility in dialog effects? (idk what I'm talking about)
 class NPC {
-	constructor(npcName, dialogs) {
+	constructor(name, dialogs) {
 		this.name = name; //string
 		this.dialogs = dialogs; //map of arrays of function objects @_@
 	}
@@ -27,7 +27,6 @@ class NPC {
 				playerCtrl = true;
 			}
 		}
-	
 	}
 
 
@@ -89,8 +88,8 @@ npcOldMan.dialogs.set("general",
 npcOldMan.interact = function() {
 	//do flag check here?
 	if (!flags.gotFirstWeapon) {
-		doDialog(dialogs["meet"]);
+		npcOldMan.doDialog(npcOldMan.dialogs.get("meet"));
 	} else {
-		doDialog(dialogs["general"]);
+		npcOldMan.doDialog(npcOldMan.dialogs.get("general"));
 	}
 }

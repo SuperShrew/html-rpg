@@ -85,7 +85,13 @@ document.addEventListener("keydown", function(event) {
 
 
   if (event.key == " ") { 
-
+    let npcs = document.getElementsByClassName("NPC1");
+    for (let i = 0; i < npcs.length; i++) {
+      if (collision(playerElement, npcs[i])) {
+        npcByID.get(npcs[i].id).interact();
+        break;
+      }
+    }
   }
 
 });

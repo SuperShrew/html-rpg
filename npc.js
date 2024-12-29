@@ -10,9 +10,9 @@ class NPC {
 		this.dialogs = dialogs; //map of arrays of function objects @_@
 	}
 
-	function interact() {}
+	interact() {}
 
-	function doDialog(sequence) {
+	doDialog(sequence) {
 		playerCtrl = false;
 		sequence[0]();
         btnNext.style.display = "";
@@ -31,15 +31,15 @@ class NPC {
 	}
 
 
-	function dialogTalk(text){
+	dialogTalk(text){
 		textElement.innerHTML = this.name + ": " + text;
 	}
 
-	function dialogNarration(text){
+	dialogNarration(text){
 		textElement.innerHTML = text;
 	}
 
-	function dialogGetItem(item, quantity) {
+	dialogGetItem(item, quantity) {
 		if (quantity < 1) {
 			throw "Error: cannot receive less than 1 of an item.";
 			return;
@@ -48,7 +48,7 @@ class NPC {
     playerInventory[item] += quantity;
 	}
 
-	function dialogGiveItem(item, quantity) {
+	dialogGiveItem(item, quantity) {
 		if (quantity < 1) {
 			throw "Error: cannot give less than 1 of an item.";
 			return;

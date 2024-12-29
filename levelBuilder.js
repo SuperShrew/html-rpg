@@ -17,9 +17,6 @@ class Element {
     parentElement.appendChild(hitboxDiv);
     return hitboxDiv;
   }
-  static clearGame() {
-    document.getElementById("game").innerHTML = "";
-  }
   static addButton(id, parentElement, text, top, left, position, centre) {
     let button = document.createElement("button");
     button.id = id;
@@ -42,6 +39,10 @@ class Element {
   }
 }
 
+function clearGame() {
+  document.getElementById("game").innerHTML = "";
+}
+
 function buildLevel(levelNum) {
   let base = document.createElement("div");
   base.style.width = "300px"
@@ -49,7 +50,7 @@ function buildLevel(levelNum) {
   switch(levelNum) {
   case 0:
     Element.addHeading(base, "Web RPG thing", "center");
-    Element.addButton("", base, "Play", "100px", "50%", "absolute", true);
+    Element.addButton("pla", base, "Play", "100px", "50%", "absolute", true);
     base.style.backgroundColor = "white";
     base.style.width = "300px";
     base.style.height = "300px";
@@ -60,6 +61,7 @@ function buildLevel(levelNum) {
     let npc = Element.addDiv("OldMan", "NPC1", base, "100px", "280px", "", "", "relative");
     npcByID.set("OldMan", npcOldMan);
     Element.addHitbox(npc, "NPC");
+    Element.addDiv("caveExit", "door1", base, "270px", "50%", "", "", "")
     return base;
   }
 }

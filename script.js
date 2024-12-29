@@ -1,14 +1,14 @@
 
 
-//TEST
+/* TEST
 gameElement.appendChild(buildLevel(1))
 currentLevel = 1;
-
-
+*/
+gameElement.appendChild(buildLevel(currentLevel));
 
 console.log(document.getElementsByClassName("NPC1Hitbox"));
 
-
+document.getElementById("pla").onclick = function() { clearGame(); currentLevel += 1; gameElement.appendChild(buildLevel(currentLevel)); };
 
 
 document.addEventListener("keypress", function(event) {
@@ -82,7 +82,6 @@ document.addEventListener("keypress", function(event) {
   });
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
-  console.log(collision(player, document.getElementsByClassName("NPC1")[0]));
 
 });
 

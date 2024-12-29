@@ -63,7 +63,6 @@ function buildLevel(levelNum) {
   }
 }
 
-/* OLD CODE FROM HERE
 
 export function test() {
   alert("test")
@@ -117,4 +116,3 @@ export function addButton(text, id, parentElement) {
   parentElement.appendChild(button);
   return button;
 }
-*/

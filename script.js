@@ -1,6 +1,5 @@
 
 
-
 //TEST
 gameElement.appendChild(buildLevel(1))
 currentLevel = 1;

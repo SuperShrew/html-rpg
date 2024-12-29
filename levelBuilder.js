@@ -57,7 +57,8 @@ function buildLevel(levelNum) {
     return base;
   case 1:
     Element.addDiv("player", "", base, "0px", "0px", "20px", "20px", "relative");
-    let npc = Element.addDiv("", "NPC1", base, "100px", "280px", "", "", "relative");
+    let npc = Element.addDiv("OldMan", "NPC1", base, "100px", "280px", "", "", "relative");
+    npcByID.set("OldMan", npcOldMan);
     Element.addHitbox(npc, "NPC");
     return base;
   }

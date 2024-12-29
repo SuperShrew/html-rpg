@@ -10,6 +10,8 @@ const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(window.getCompu
 const playerMaxSpeed = 20;
 let playerX = 0;
 let playerY = 0;
+let origionalX = 0;
+let origionalY = 0;
 let playerCtrl = true;
 let playerInventory = {};
 
@@ -21,7 +23,7 @@ currentLevel = 1;
 
 
 
-
+console.log(document.getElementsByClassName("NPC1Hitbox"));
 
 
 
@@ -46,12 +48,12 @@ document.addEventListener("keypress", function(event) {
   }
 
 
-
   // early out if we are still in the title screen
   if (currentLevel < 1) {
     return;
   }
-
+  origionalX = playerX
+  origionalY = playerY
   // player control
   let playerElement = document.getElementById("player");
   if (playerCtrl) {
@@ -68,6 +70,10 @@ document.addEventListener("keypress", function(event) {
       playerY += playerMaxSpeed;
     }
   }
+  console.log(playerX);
+  console.log(playerY);
+  console.log(origionalX);
+  console.log(origionalY);
 
   /*if (playerX < 0) {
     playerX = 0;
@@ -84,10 +90,35 @@ document.addEventListener("keypress", function(event) {
   //console.log("x="+String(playerX));
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
+  getElementsWithVar("--solid").forEach((element) => {
+    if (inside(playerElement, element)) {
+      console.log(element);
+      playerX = origionalX
+      playerY = origionalY
+    }
+  });
+  playerElement.style.left = playerX + "px";
+  playerElement.style.top = playerY + "px";
   console.log(collision(player, document.getElementsByClassName("NPC1")[0]));
 
 });
 
+
+function getElementsWithVar(cssVar) {
+    const elementsWithVar = [];
+    const allElements = document.querySelectorAll('*'); // Select all elements
+    //console.log(allElements);
+
+    allElements.forEach((element) => {
+        const computedStyle = getComputedStyle(element); // Get the computed styles of the element
+        //console.log(computedStyle);
+        if (computedStyle.getPropertyValue(cssVar)) {
+            elementsWithVar.push(element); // Add the element to the array if the variable is present
+        }
+    });
+    //console.log(elementsWithVar);
+    return elementsWithVar;
+}
 
 function collision(div1, div2) {
     const rect1 = div1.getBoundingClientRect();

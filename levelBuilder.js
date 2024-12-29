@@ -51,6 +51,7 @@ function buildLevel(levelNum) {
   case 0:
     Element.addHeading(base, "Web RPG thing", "center");
     Element.addButton("pla", base, "Play", "100px", "50%", "absolute", true);
+    document.getElementById("text").innerText = "By Matt and Josh"
     base.style.backgroundColor = "white";
     base.style.width = "300px";
     base.style.height = "300px";
@@ -66,6 +67,9 @@ function buildLevel(levelNum) {
     return base;
   case 2:
     base.style.backgroundColor = "green"
+    Element.addDiv("player", "", base, "0px", "0px", "20px", "20px", "relative");
+    playerX = 0;
+    playerY = 0;
     return base;
   }
 }

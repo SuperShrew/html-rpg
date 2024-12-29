@@ -11,22 +11,22 @@ console.log(document.getElementsByClassName("NPC1Hitbox"));
 document.getElementById("pla").onclick = function() { clearGame(); currentLevel += 1; gameElement.appendChild(buildLevel(currentLevel)); };
 
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keydown", function(event) {
   // handle input
   let leftPressed = false;
   let rightPressed = false;
   let upPressed = false;
   let downPressed = false;
-  if (event.code === "KeyA" || event.code === "ArrowLeft") {
+  if (event.code === "KeyA" || event.key === "ArrowLeft") {
     leftPressed = true;
   }
-  if (event.code === "KeyD" || event.code === "ArrowRight") {
+  if (event.code === "KeyD" || event.key === "ArrowRight") {
     rightPressed = true;
   }
-  if (event.code === "KeyW" || event.code === "ArrowUp") {
+  if (event.code === "KeyW" || event.key === "ArrowUp") {
     upPressed = true;
   }
-  if (event.code === "KeyS" || event.code === "ArrowDown") {
+  if (event.code === "KeyS" || event.key === "ArrowDown") {
     downPressed = true;
   }
 
@@ -82,6 +82,11 @@ document.addEventListener("keypress", function(event) {
   });
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
+
+
+  if (event.key == " ") { 
+
+  }
 
 });
 

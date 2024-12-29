@@ -45,7 +45,7 @@ class NPC {
 			return;
 		}
 		textElement.innerHTML = "you received " + String(quantity) + " " + item + "(s).";
-    playerInventory[item] += quantity;
+    	playerInventory[item] += quantity;
 	}
 
 	dialogGiveItem(item, quantity) {
@@ -58,10 +58,9 @@ class NPC {
 			return;
 		}
 		textElement.innerHTML = "you gave " + this.name + " " + String(quantity) + " " + item + "(s).";
-    playerInventory[item] -= quantity;
+    	playerInventory[item] -= quantity;
 	}
 	
-
 }
 
 

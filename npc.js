@@ -128,6 +128,8 @@ doorCaveEnter.dialogs.set("enter",
 		},
 		function() {
 			doorCaveEnter.dialogChangeLevel(1);
+			playerX = 0;
+			playerY = 0;
 		}
 	]);
 

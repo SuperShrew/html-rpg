@@ -94,11 +94,17 @@ npcOldMan.interact = function() {
 	}
 }
 
+
+// 'NPC' definition: Cave Exit //
 const doorCaveExit = new NPC("Cave Exit", new Map());
 
-doorCaveExit.dialogs.set("general",
+doorCaveExit.dialogs.set("enter",
 	[
 		function() {
 			doorCaveExit.dialogNarration("You go through");
 		}
 	]);
+
+doorCaveExit.interact = function() {
+	doorCaveExit.doDialog(doorCaveExit.dialogs.get("enter"));
+}

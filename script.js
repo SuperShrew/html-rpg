@@ -76,8 +76,8 @@ document.addEventListener("keypress", function(event) {
   getElementsWithVar("--solid").forEach((element) => {
     if (inside(playerElement, element)) {
       console.log(element);
-      playerX = origionalX
-      playerY = origionalY
+      playerX = origionalX;
+      playerY = origionalY;
     }
   });
   playerElement.style.left = playerX + "px";

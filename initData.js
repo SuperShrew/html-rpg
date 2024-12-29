@@ -1,7 +1,10 @@
 const gameElement = document.getElementById("game");
 const textElement = document.getElementById("text");
-const btnNext = addButton("Next", "btnNext", buttonDiv);
+const btnNext = document.createElement("button");
+btnNext.id = "btnNext";
+btnNext.innerHTML = "Next";
 btnNext.style.display = "none";
+document.getElementById("buttonDiv").appendChild(btnNext);
 const gameWidth = parseInt(gameElement.offsetWidth) - parseInt(window.getComputedStyle(gameElement).borderWidth) * 2;
 const gameHeight = parseInt(gameElement.offsetHeight) - parseInt(window.getComputedStyle(gameElement).borderTopWidth) * 2;
 

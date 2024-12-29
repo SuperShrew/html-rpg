@@ -93,3 +93,12 @@ npcOldMan.interact = function() {
 		npcOldMan.doDialog(npcOldMan.dialogs.get("general"));
 	}
 }
+
+const doorCaveExit = new NPC("Cave Exit", new Map());
+
+doorCaveExit.dialogs.set("general",
+	[
+		function() {
+			doorCaveExit.dialogNarration("You go through");
+		}
+	]);

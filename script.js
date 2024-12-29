@@ -53,10 +53,6 @@ document.addEventListener("keydown", function(event) {
       playerY += playerMaxSpeed;
     }
   }
-  console.log(playerX);
-  console.log(playerY);
-  console.log(origionalX);
-  console.log(origionalY);
 
   /*if (playerX < 0) {
     playerX = 0;
@@ -85,9 +81,9 @@ document.addEventListener("keydown", function(event) {
 
 
   if (event.key == " ") { 
-    let npcs = document.getElementsByClassName("NPC1");
+    let npcs = getElementsWithVar("--interact");
     for (let i = 0; i < npcs.length; i++) {
-      if (collision(playerElement, npcs[i])) {
+      if (collision(playerElement, npcs[i]) || overlap(playerElement, npcs[i])) {
         npcByID.get(npcs[i].id).interact();
         break;
       }
@@ -125,6 +121,20 @@ function collision(div1, div2) {
         rect1.top < rect2.bottom &&
         rect1.bottom > rect2.top
     );*/
+}
+
+//not functional. get it? function-al XD
+function overlap(innerDiv, outerDiv) {
+    const innerRect = innerDiv.getBoundingClientRect();
+    console.log(innerRect);
+    const outerRect = outerDiv.getBoundingClientRect();
+    console.log(outerRect);
+    return !(
+        innerRect.top > outerRect.bottom ||
+        innerRect.left > outerRect.right ||
+        innerRect.bottom < outerRect.top ||
+        innerRect.right < outerRect.left
+    );
 }
 
 function inside(innerDiv, outerDiv) {

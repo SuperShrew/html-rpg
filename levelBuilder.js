@@ -62,7 +62,10 @@ function buildLevel(levelNum) {
     npcByID.set("OldMan", npcOldMan);
     Element.addHitbox(npc, "NPC");
     Element.addDiv("caveExit", "door1", base, "270px", "50%", "", "", "")
+    npcByID.set("caveExit", doorCaveExit);
     return base;
+  case 2:
+    base.style.backgroundColor = "green"
   }
 }
 

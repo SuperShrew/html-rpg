@@ -1,5 +1,5 @@
 #player {
-  position: relative;
+  position: absolute;
   height: 20px;
   width: 20px;
   background-color: blue;
@@ -16,6 +16,7 @@
 }
 
 .door1 {
+  --interact: 1;
   position: absolute;
   height: 30px;
   width: 40px;
@@ -24,6 +25,7 @@
 }
 
 .NPC1 {
+  --interact: 1;
   position: absolute;
   border: 5px solid saddlebrown;
   height: 10px;

@@ -13,7 +13,7 @@ class Element {
   }
   static addHitbox(parentElement, type) {
     let hitboxDiv = document.createElement("div");
-    hitboxDiv.id = type + "Hitbox";
+    hitboxDiv.className = type + "Hitbox";
     parentElement.appendChild(hitboxDiv);
     return hitboxDiv;
   }
@@ -65,11 +65,11 @@ function buildLevel(levelNum) {
 
 /* OLD CODE FROM HERE
 
-export function test() {
+function test() {
   alert("test")
 }
 
-export function addDiv (id, parentElement) {
+function addDiv (id, parentElement) {
   var newDiv = document.createElement("div");
   newDiv.id = id;
   parentElement.appendChild(newDiv);
@@ -79,18 +79,18 @@ export function addDiv (id, parentElement) {
 
 ///formatDiv, addHitbox, etc. ?
 
-export function addHitbox (element) {
+function addHitbox (element) {
   var hitboxDiv = document.createElement("div");
   hitboxDiv.id = element.id + "Hitbox";
   element.appendChild(hitboxDiv);
   return hitboxDiv;
 }
 
-export function clearCurrentLevel () {
+function clearCurrentLevel () {
   document.getElementById("game").innerHTML = "";
 }
 
-export function buildLevel1 () {
+function buildLevel1 () {
   const game = document.getElementById("game");
   
   var mover = addDiv("mover", game);
@@ -101,7 +101,7 @@ export function buildLevel1 () {
   var oldMan = addDiv("oldMan", game);
   addHitbox(oldMan);
 } 
-export function buildLevel2() {
+function buildLevel2() {
   const game = document.getElementById("game");
 
   game.innerHTML = ""
@@ -110,7 +110,7 @@ export function buildLevel2() {
   ///set colour and stuff
 }
 
-export function addButton(text, id, parentElement) {
+function addButton(text, id, parentElement) {
   var button = document.createElement("button");
   button.id = id;
   button.innerHTML = text;

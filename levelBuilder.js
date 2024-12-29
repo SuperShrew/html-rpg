@@ -61,7 +61,7 @@ function buildLevel(levelNum) {
     let npc = Element.addDiv("OldMan", "NPC1", base, "100px", "280px", "", "", "relative");
     npcByID.set("OldMan", npcOldMan);
     Element.addHitbox(npc, "NPC");
-    Element.addDiv("caveExit", "door1", base, "270px", "50%", "", "", "")
+    Element.addDiv("caveExit", "door1", base, "270px", "30%", "", "", "")
     npcByID.set("caveExit", doorCaveExit);
     return base;
   case 2:

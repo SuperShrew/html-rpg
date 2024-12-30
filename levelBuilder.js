@@ -58,7 +58,7 @@ function buildLevel(levelNum) {
     base.style.position = "absolute";
     return base;
   case 1:
-    Element.addDiv("player", "", base, "0px", "0px", "20px", "20px", "relative");
+    Element.addDiv("player", "", base, "", "", "20px", "20px", "relative");
     let npc = Element.addDiv("OldMan", "NPC1", base, "100px", "280px", "", "", "relative");
     npcByID.set("OldMan", npcOldMan);
     Element.addHitbox(npc, "NPC");
@@ -67,11 +67,9 @@ function buildLevel(levelNum) {
     return base;
   case 2:
     base.style.backgroundColor = "green";
-    Element.addDiv("player", "", base, "0px", "100px", "20px", "20px", "relative");
+    Element.addDiv("player", "", base, "", "", "20px", "20px", "relative");
     Element.addDiv("caveEnter", "door1", base, "0px", "30%", "", "", "");
     npcByID.set("caveEnter", doorCaveEnter);
-    playerX = 100;
-    playerY = 0;
     return base;
   }
 }

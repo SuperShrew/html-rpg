@@ -111,6 +111,10 @@ doorCaveExit.dialogs.set("enter",
 		},
 		function() {
 			doorCaveExit.dialogChangeLevel(2);
+			playerX = 100;
+			playerY = 0;
+			document.getElementById("player").style.left = playerX + "px";
+			document.getElementById("player").style.top = playerY + "px";
 		}
 	]);
 
@@ -128,8 +132,10 @@ doorCaveEnter.dialogs.set("enter",
 		},
 		function() {
 			doorCaveEnter.dialogChangeLevel(1);
-			playerX = 0;
-			playerY = 0;
+			playerX = 100;
+			playerY = 280;
+			document.getElementById("player").style.left = playerX + "px";
+			document.getElementById("player").style.top = playerY + "px";
 		}
 	]);
 

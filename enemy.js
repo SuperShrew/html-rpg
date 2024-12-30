@@ -22,7 +22,9 @@ class Enemy {
 				/*text.innerHTML = */console.log(this.stats["name"] + " attacked with " + Object.keys(this.attacks)[rand] + " and dealt " + String(attack["dmg"]) + " damage");
 			}
 		}
+		this.extraEffect()
 	}
+	extraEffect() {}
 }
 
 // matt i will explain all of this later

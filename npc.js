@@ -10,7 +10,7 @@ class NPC {
 		this.dialogs = dialogs; //map of arrays of function objects @_@
 	}
 
-	interact() {}
+	interact() {}	// override this function for your specific NPC
 
 	doDialog(sequence) {
 		playerCtrl = false;
@@ -68,7 +68,7 @@ class NPC {
 	}
 }
 
-
+/////////////////////////////////////////// NPCs ///////////////////////////////////////////////
 // NPC definition: Old Man //
 const npcOldMan = new NPC("Old Man", new Map());
 // 1st meeting dialog
@@ -90,7 +90,6 @@ npcOldMan.dialogs.set("general",
 		}
 	]);
 
-
 npcOldMan.interact = function() {
 	//do flag check here?
 	if (!flags.gotFirstWeapon) {
@@ -101,9 +100,10 @@ npcOldMan.interact = function() {
 }
 
 
+/////////////////////////////////////////// Misc Interactables ////////////////////////////////////////////
 // 'NPC' definition: Cave Exit //
 const doorCaveExit = new NPC("Cave Exit", new Map());
-
+// use message
 doorCaveExit.dialogs.set("enter",
 	[
 		function() {
@@ -111,10 +111,7 @@ doorCaveExit.dialogs.set("enter",
 		},
 		function() {
 			doorCaveExit.dialogChangeLevel(2);
-			playerX = 100;
-			playerY = 0;
-			document.getElementById("player").style.left = playerX + "px";
-			document.getElementById("player").style.top = playerY + "px";
+			relocatePlayer(100, 0);
 		}
 	]);
 
@@ -132,10 +129,7 @@ doorCaveEnter.dialogs.set("enter",
 		},
 		function() {
 			doorCaveEnter.dialogChangeLevel(1);
-			playerX = 100;
-			playerY = 280;
-			document.getElementById("player").style.left = playerX + "px";
-			document.getElementById("player").style.top = playerY + "px";
+			relocatePlayer(100, 280);
 		}
 	]);
 

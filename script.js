@@ -1,13 +1,10 @@
 
 
-/* TEST
-gameElement.appendChild(buildLevel(1))
-currentLevel = 1;
-*/
+// load the initial level
 gameElement.appendChild(buildLevel(currentLevel));
 
-console.log(document.getElementsByClassName("NPC1Hitbox"));
-
+///console.log(document.getElementsByClassName("NPC1Hitbox"));
+// set up 'Play' button to load the 1st level
 document.getElementById("pla").onclick = function() { clearGame(); currentLevel += 1; gameElement.appendChild(buildLevel(currentLevel)); };
 
 
@@ -17,6 +14,7 @@ document.addEventListener("keydown", function(event) {
   let rightPressed = false;
   let upPressed = false;
   let downPressed = false;
+  let interactPressed = false;
   if (event.code === "KeyA" || event.key === "ArrowLeft") {
     leftPressed = true;
   }
@@ -29,16 +27,23 @@ document.addEventListener("keydown", function(event) {
   if (event.code === "KeyS" || event.key === "ArrowDown") {
     downPressed = true;
   }
+  if (event.key === " ") {
+    interactPressed = true;
+  }
 
 
   // early out if we are still in the title screen
   if (currentLevel < 1) {
     return;
   }
+
+   /// Player Control ///
+  //////////////////////
   origionalX = playerX
   origionalY = playerY
-  // player control
   let playerElement = document.getElementById("player");
+
+  // movement
   if (playerCtrl) {
     if (leftPressed && !rightPressed) {
       playerX -= playerMaxSpeed;
@@ -54,21 +59,12 @@ document.addEventListener("keydown", function(event) {
     }
   }
 
-  /*if (playerX < 0) {
-    playerX = 0;
-  } else if (playerX > gameWidth) {
-    playerX = gameWidth;
-  }
-  if (playerY < 0) {
-    playerY = 0;
-  } else if (playerY > gameHeight) {
-    playerY = gameHeight;
-  }*/
   playerX = Math.max(0, Math.min(playerX, gameWidth-parseInt(playerElement.style.width)));
   playerY = Math.max(0, Math.min(playerY, gameHeight-parseInt(playerElement.style.height)));
-  //console.log("x="+String(playerX));
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
+
+  // collision
   getElementsWithVar("--solid").forEach((element) => {
     if (inside(playerElement, element)) {
       console.log(element);
@@ -79,8 +75,8 @@ document.addEventListener("keydown", function(event) {
   playerElement.style.left = playerX + "px";
   playerElement.style.top = playerY + "px";
 
-
-  if (event.key == " ") { 
+  // interaction
+  if (playerCtrl && interactPressed) { 
     let npcs = getElementsWithVar("--interact");
     for (let i = 0; i < npcs.length; i++) {
       if (collision(playerElement, npcs[i]) || overlap(playerElement, npcs[i])) {
@@ -89,6 +85,9 @@ document.addEventListener("keydown", function(event) {
       }
     }
   }
+
+  // misc
+
 
 });
 
@@ -109,6 +108,7 @@ function getElementsWithVar(cssVar) {
     return elementsWithVar;
 }
 
+// tests if 2 elements are exactly adjacent
 function collision(div1, div2) {
     const rect1 = div1.getBoundingClientRect();
     const rect2 = div2.getBoundingClientRect();
@@ -123,17 +123,16 @@ function collision(div1, div2) {
     );*/
 }
 
-//not functional. get it? function-al XD
-function overlap(innerDiv, outerDiv) {
-    const innerRect = innerDiv.getBoundingClientRect();
-    console.log(innerRect);
-    const outerRect = outerDiv.getBoundingClientRect();
-    console.log(outerRect);
+function overlap(div1, div2) {
+    const rect1 = div1.getBoundingClientRect();
+    //console.log(innerRect);
+    const rect2 = div2.getBoundingClientRect();
+    //console.log(outerRect);
     return !(
-        innerRect.top > outerRect.bottom ||
-        innerRect.left > outerRect.right ||
-        innerRect.bottom < outerRect.top ||
-        innerRect.right < outerRect.left
+        rect1.top > rect2.bottom ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.right < rect2.left
     );
 }
 
@@ -148,6 +147,13 @@ function inside(innerDiv, outerDiv) {
     );
 }
 
+function relocatePlayer(x, y) {
+  let plr = document.getElementById("player");
+  playerX = x;
+  playerY = y;
+  plr.style.left = playerX + "px";
+  plr.style.top = playerY + "px";
+}
 
 /*  OLD CODE FROM HERE
 

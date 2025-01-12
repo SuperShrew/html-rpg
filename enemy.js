@@ -1,8 +1,7 @@
 
 class Enemy {
-	constructor(stats, equipment, attacks) {
+	constructor(stats, attacks) {
 		this.stats = stats;
-		this.equipment = equipment;
 		this.attacks = attacks;
 	}
 	action(playerStats, playerEquipment) {
@@ -42,7 +41,6 @@ let eTest = new Enemy(
 	"energy": 20,
 	"maxEnergy": 20
 },
-{	},
 {
 	"basic": {
 		"dmg": 10,

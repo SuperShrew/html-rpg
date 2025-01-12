@@ -2,13 +2,18 @@
 
 class Battle {
 	constructor(enemies, playerInventory, playerStats) {
-		this.enemies = enemies; // an array of Enemy classes
-		this.playerInventory; // dictionary
-		this.playerStats; // dictionary
+		this.enemies = enemies;
+		this.playerInventory = playerInventory
+		this.playerStats = playerStats
 	}
 	main() {
-		let order = this.enemies.push("player");
-		order.sort((a, b) => (b.stats["speed"] || playerStats["speed"]) - (a.stats["speed"] || playerStats["speed"]));
+		let order = this.enemies.slice();
+		order.push("player");
+		order.sort((a, b) => {
+			const speedA = a.stats?.speed || this.playerStats.speed;
+			const speedB = b.stats?.speed || this.playerStats.speed;
+			return speedB - speedA;
+        });
 		return order;
 	}
 }

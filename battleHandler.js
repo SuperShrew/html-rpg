@@ -10,10 +10,10 @@ class Battle {
 		let order = this.enemies.slice();
 		order.push("player");
 		order.sort((a, b) => {
-			const speedA = a.stats?.speed || this.playerStats.speed;
-			const speedB = b.stats?.speed || this.playerStats.speed;
+			const speedA = a.stats?.speed || this.playerStats["speed"];
+			const speedB = b.stats?.speed || this.playerStats["speed"];
 			return speedB - speedA;
-        });
+        	});
 		return order;
 	}
 }

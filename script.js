@@ -33,9 +33,9 @@ document.addEventListener("keydown", function(event) {
   if (event.key == "1")
     {
       invString = ""
-      for (var i in inventory)
+      for (var i in playerInventory)
         {
-          invString = invString + i + ": " + inventory[i] + "\n";
+          invString = invString + i + ": " + playerInventory[i] + "\n";
         }
       text.innerHTML = invString;
     }

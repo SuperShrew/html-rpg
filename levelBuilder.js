@@ -70,6 +70,7 @@ function buildLevel(levelNum) {
     Element.addDiv("player", "", base, "", "", "20px", "20px", "relative");
     Element.addDiv("caveEnter", "door1", base, "0px", "30%", "", "", "");
     npcByID.set("caveEnter", doorCaveEnter);
+    
     return base;
   }
 }

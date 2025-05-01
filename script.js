@@ -30,6 +30,15 @@ document.addEventListener("keydown", function(event) {
   if (event.key === " ") {
     interactPressed = true;
   }
+  if (event.key == "1")
+    {
+      invString = ""
+      for (var i in inventory)
+        {
+          invString = invString + i + ": " + inventory[i] + "\n";
+        }
+      text.innerHTML = invString;
+    }
 
 
   // early out if we are still in the title screen
@@ -98,7 +107,7 @@ function getElementsWithVar(cssVar) {
     //console.log(allElements);
 
     allElements.forEach((element) => {
-        const computedStyle = getComputedStyle(element); // Get the computed styles of the element
+        const computedStyle = getComputedStyle(element); // Get the styles of the element
         //console.log(computedStyle);
         if (computedStyle.getPropertyValue(cssVar)) {
             elementsWithVar.push(element); // Add the element to the array if the variable is present
@@ -262,7 +271,7 @@ document.addEventListener("keypress", function(event) {
   if (event.key == "1")
   {
     invString = ""
-    for (var i in inventory)1
+    for (var i in inventory)
       {
         invString = invString + i + ": " + inventory[i] + "\n";
       }

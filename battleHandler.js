@@ -6,7 +6,7 @@ class Battle {
 		this.playerInventory = playerInventory
 		this.playerStats = playerStats
 	}
-	main() {
+	sList() {
 		let order = this.enemies.slice();
 		order.push("player");
 		order.sort((a, b) => {
@@ -16,9 +16,13 @@ class Battle {
         	});
 		return order;
 	}
+	main() {
+		turn = 0
+		
+	}
 }
 
 a = new Battle([new Enemy({"speed": 10}, {}), new Enemy({"speed": 5}, {})], {}, {"speed": 7});
-a.main().forEach((stat) => {
+a.sList().forEach((stat) => {
 	console.log(stat)
 });

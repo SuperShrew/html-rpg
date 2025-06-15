@@ -8,10 +8,10 @@
 
 #game {
   position: absolute;
-  border: 5px solid black;
+  border: 5px solid white;
   height: 300px;
   width: 300px;
-  background-color: #2c2c30;
+  background-color: black;
   z-index: 1;
 }
 
